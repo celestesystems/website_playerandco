@@ -1,0 +1,177 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    width: 100%;
+    min-height: 256px;
+    padding: 12px;
+
+    background-color: cyan;
+}
+
+.ButtonAccount{
+    font-size: medium;
+
+    background-color: orange;
+
+    border: solid;
+    border-color: orange;
+    border-radius: 10%;
+    border-width: 6px;
+}
+
+main{
+    width: 100%;
+}
+
+#CarrousselEvent{
+    min-height: 640px;
+
+    overflow-x: scroll;
+
+    scroll-snap-type: x mandatory;
+
+    background-color: wheat;
+}
+
+#CarrousselSelectorContainer{
+    position: relative;
+
+    bottom: 64px;
+
+    margin-left: 25vw;
+    width: 50vw;
+    height: 48px;
+    padding: 0 10%;
+
+    background-color: #aaaaaabb;
+}
+
+.EventElement{
+    flex-shrink: 0;
+
+    width: 100vw;
+    min-height: 640px;
+
+    background-image: url("../../assets/PlaceHolders/PlaceHolder_Event_BG.jpg");
+    background-repeat: repeat;
+
+    border-style: dashed;
+    border-width: 2px;
+    border-color: #3f3f3f;
+}
+
+.EventSelector{
+    height: 32px;
+    width: 32px;
+
+    border-width: 16px;
+
+    border-radius: 20%;
+
+    background-color: black;
+}
+
+.EventSelected{
+    width: 64px;
+}
+
+.EventBox{
+    width: 100%;
+    max-width: 50vw;
+    min-height: 480px;
+
+    margin: 0 25vw;
+}
+
+.EventTitle{
+    position: relative;
+    top: 128px;
+    left: 10%;
+
+    width: 80%;
+    min-height: 32px;
+
+    background-color: aliceblue;
+
+    text-align: center;
+}
+
+.EventImage{
+    background-color: #3f3f3f;
+
+    width: 100%;
+    min-height: 128px;
+}
+
+.EventInfo{
+    min-height: 384px;
+
+    background-color: white;
+}
+
+.EventInfoContent{
+    min-height: 320px;
+}
+
+.EventInfoContent>ul{
+    list-style-position: inside;
+    text-indent: 4%;
+}
+
+.ButtonJoinEvent{
+    margin: 0% 40%;
+
+    width: 80%;
+
+    text-align: center;
+
+    font-size: x-large;
+
+    color: white;
+
+    background-color: red;
+
+    border: solid;
+    border-color: red;
+    border-radius: 10%;
+    border-width: 8px;
+}
+
+footer{
+    width: 100%;
+    min-height: 320px;
+
+    background-color: #3f3f3f;
+}
+
+.WidthFull{
+    width: 100%;
+}
+
+.Flex{
+    display: flex;
+}
+
+.FlexDirectionRow{
+    flex-direction: row;
+}
+
+.FlexDirectionCol{
+    flex-direction: column;
+}
+
+.FlexMax{
+    flex-basis: max-content;
+}
+
+.FlexAlignCenter{
+    align-items: center;
+}
+
+.FlexSpaceBetween{
+    justify-content: space-between;
+}   
