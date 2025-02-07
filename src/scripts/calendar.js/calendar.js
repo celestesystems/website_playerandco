@@ -1,3 +1,5 @@
+import { GameEvent } from "../game_events/game_event";
+
 class Calendar{
     Calendar_elements;
 
@@ -11,3 +13,5 @@ class CalendarEvent{
         this.game_event = game_event;
     }
 }
+
+export default {};
