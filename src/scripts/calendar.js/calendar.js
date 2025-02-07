@@ -1,5 +1,7 @@
 class Calendar{
-    constructor(){
+    Calendar_elements;
+
+    constructor(amount){
 
     }
 }

@@ -159,14 +159,6 @@ class Carroussel{
     }
 }
 
-function getStyleSheet(unique_title) {
-    for (const sheet of document.styleSheets) {
-        if (sheet.title === unique_title) {
-            return sheet;
-        }
-    }
-}
-
 new Carroussel(6, getStyleSheet("main_style"));
 
 export default {};
