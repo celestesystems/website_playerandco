@@ -1,3 +1,9 @@
+/*
+
+Generic Styling
+
+*/
+
 *{
     margin: 0;
     padding: 0;
@@ -26,6 +32,12 @@ header{
 main{
     width: 100%;
 }
+
+/*
+
+Caroussel Styling
+
+*/
 
 #CarrousselEvent{
     min-height: 640px;
@@ -84,7 +96,7 @@ main{
     max-width: 50vw;
     min-height: 480px;
 
-    margin: 0 25vw;
+    margin: 0 auto;
 }
 
 .EventTitle{
@@ -141,6 +153,27 @@ main{
     border-width: 8px;
 }
 
+/*
+
+Calendar Styling
+
+*/
+
+#CalendarContainer{
+    width: 90vw;
+    margin: auto;
+    min-height: 786px;
+
+    border-style: solid;
+    border-width: 2px;
+}
+
+/*
+
+Other Styling
+
+*/
+
 footer{
     width: 100%;
     min-height: 320px;
@@ -151,6 +184,12 @@ footer{
 .WidthFull{
     width: 100%;
 }
+
+/*
+
+Flex Styling
+
+*/
 
 .Flex{
     display: flex;

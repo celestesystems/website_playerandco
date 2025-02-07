@@ -122,10 +122,8 @@ class CarrousselSelector{
 class Carroussel{
     selectors = [];
 
-    constructor(amount, style_sheet){
+    constructor(amount){
         this.DisplayCarroussel(amount, 0);
-
-        this.style_sheet = style_sheet;
     }
 
     GetSelectors(){
@@ -159,6 +157,6 @@ class Carroussel{
     }
 }
 
-new Carroussel(6, getStyleSheet("main_style"));
+new Carroussel(6);
 
 export default {};
