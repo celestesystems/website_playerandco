@@ -122,8 +122,8 @@ class CarrousselSelector{
 class Carroussel{
     selectors = [];
 
-    constructor(amount){
-        this.DisplayCarroussel(amount, 0);
+    constructor(game_events){
+        this.game_events = game_events;
     }
 
     GetSelectors(){
@@ -131,9 +131,7 @@ class Carroussel{
     }
 
     DisplayCarroussel(amount){
-        for(let i = 0; i < amount; i++){
-            let game_event =  new GameEvent("Test " + i, "We're playing undaunted!", new Date(2001, 0, 0, 0, 0, 0, 0), GameThemes.WARGAME);
-
+        this.game_events.forEach(game_event => {
             let content = new CarousselContent(i, game_event);
 
             content.Display();
@@ -143,7 +141,7 @@ class Carroussel{
             selector.DisplayEventSelector();
         
             this.selectors.push(selector);
-        }
+        });
     }
 
     ShiftEvents(position){

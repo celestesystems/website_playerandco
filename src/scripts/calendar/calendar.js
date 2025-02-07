@@ -1,14 +1,22 @@
 import { GameEvent } from "../game_events/game_event.js";
 
+const calendar_element = document.getElementById("CalendarContainer");
+
 class Calendar{
     Calendar_elements;
 
-    constructor(amount){
+    constructor(game_events){
 
     }
 
     Display(){
 
+    }
+}
+
+class CalendarDay{
+    constructor(game_events){
+        this.game_events = game_events;
     }
 }
 
@@ -18,7 +26,7 @@ class CalendarEvent{
     }
 
     Display(){
-
+        let event_box = document.createElement("div");
     }
 }
 
