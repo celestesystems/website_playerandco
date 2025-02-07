@@ -1,12 +1,18 @@
+class GameThemes {
+    static ALL= 0;
+    static WARGAME= 1;
+    static FANTASY= 2;
+    static SCIFI= 3;
+}
+
 class GameEvent{
-    constructor(title, description, date, time_begin, time_end){
+    constructor(title, description, event_date, game_theme){
         this.title = title;
         this.description = description;
 
-        this.date = date;
+        this.event_date = event_date;
 
-        this.timeBegin = time_begin;
-        this.timeEnd = time_end;
+        this.game_theme = game_theme;
     }
 
     GetTitle(){
@@ -21,13 +27,9 @@ class GameEvent{
         return this.date;
     }
 
-    getTimeBegin(){
-        return this.timeBegin;
-    }
-
-    getTimeEnd(){
-        return this.timeEnd;
+    GetTheme(){
+        return this.game_theme;
     }
 }
 
-export {GameEvent};
+export {GameEvent, GameThemes};

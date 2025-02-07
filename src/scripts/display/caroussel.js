@@ -1,4 +1,4 @@
-import { GameEvent } from "../game_events/game_event.js";
+import { GameEvent, GameThemes } from "../game_events/game_event.js";
 
 const script_parent = document.getElementById("CarrousselEvent")
 const selection_element = document.getElementById("CarrousselSelectorContainer");
@@ -132,7 +132,7 @@ class Carroussel{
 
     DisplayCarroussel(amount){
         for(let i = 0; i < amount; i++){
-            let game_event =  new GameEvent("Test " + i, "Hello World");
+            let game_event =  new GameEvent("Test " + i, "We're playing undaunted!", new Date(2001, 0, 0, 0, 0, 0, 0), GameThemes.WARGAME);
 
             let content = new CarousselContent(i, game_event);
 
