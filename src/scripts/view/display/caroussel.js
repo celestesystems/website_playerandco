@@ -140,13 +140,11 @@ class Carroussel{
 
             content.Display();
 
-            let selector = new CarrousselSelector(i, this);
+            let selector = new CarrousselSelector(i++, this);
 
             selector.DisplayEventSelector();
         
             this.selectors.push(selector);
-
-            i++
         });
     }
 

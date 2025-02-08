@@ -24,8 +24,12 @@ class GameEvent{
         return this.description;
     }
 
-    GetDate(){
-        return this.date;
+    GetDateBegin(){
+        return this.event_date_begin;
+    }
+
+    GetDateEnd(){
+        return this.event_date_end
     }
 
     GetTheme(){

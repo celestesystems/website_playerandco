@@ -161,11 +161,29 @@ Calendar Styling
 
 #CalendarContainer{
     width: 90vw;
+
     margin: auto;
-    min-height: 786px;
 
     border-style: solid;
     border-width: 2px;
+}
+
+.CalendarDayContainer{
+    display: grid;
+
+    width: auto;
+    height: 786px; 
+}
+
+.CalendarEventBox{
+    flex-shrink: 0;
+
+    text-align: center;
+    justify-content: center;
+
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5%;
 }
 
 /*

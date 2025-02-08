@@ -1,3 +1,3 @@
 import GameEventTester from "./test/game_event_test.js";
 
-GameEventTester.EventDatabaseTestInit(3);
+GameEventTester.EventDatabaseTestInit(0);
