@@ -32,4 +32,14 @@ class GameEvent{
     }
 }
 
+class GameEventDatabase{
+    constructor(){
+        this.game_events = [];
+    }
+
+    PushEvent(game_event){
+        this.game_events.push(game_event);
+    }
+}
+
 export {GameEvent, GameThemes};
