@@ -3,6 +3,7 @@ class GameThemes {
     static WARGAME= 1;
     static FANTASY= 2;
     static SCIFI= 3;
+    static RACING= 4;
 }
 
 class GameEvent{

@@ -171,15 +171,27 @@ Calendar Styling
 .CalendarDayContainer{
     display: grid;
 
+    grid-template-columns: 48px auto;
+
     width: auto;
     height: 786px; 
+}
+
+.CalendarHour{
+    border: solid;
+    border-color: #808080;
+}
+
+.CalendarLine{
+    background-color: #808080;
 }
 
 .CalendarEventBox{
     flex-shrink: 0;
 
     text-align: center;
-    justify-content: center;
+    font-size: x-large;
+    color: white;
 
     border-style: solid;
     border-width: 2px;
