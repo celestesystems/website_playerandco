@@ -6,11 +6,12 @@ class GameThemes {
 }
 
 class GameEvent{
-    constructor(title, description, event_date, game_theme){
+    constructor(title, description, event_date_begin, event_date_end, game_theme){
         this.title = title;
         this.description = description;
 
-        this.event_date = event_date;
+        this.event_date_begin = event_date_begin;
+        this.event_date_end = event_date_end;
 
         this.game_theme = game_theme;
     }

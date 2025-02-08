@@ -27,6 +27,10 @@ class CalendarEvent{
 
     Display(){
         let event_box = document.createElement("div");
+
+        let pos_top = this.game_event
+
+        event_box.style = "${value}";
     }
 }
 
