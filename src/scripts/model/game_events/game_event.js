@@ -33,13 +33,15 @@ class GameEvent{
 }
 
 class GameEventDatabase{
-    constructor(){
-        this.game_events = [];
+    static game_events = [];
+
+    static PushEvent(game_event){
+        this.game_events.push(game_event);
     }
 
-    PushEvent(game_event){
-        this.game_events.push(game_event);
+    static GetEvents(){
+        return this.game_events;
     }
 }
 
-export {GameEvent, GameThemes};
+export {GameEventDatabase ,GameEvent, GameThemes};

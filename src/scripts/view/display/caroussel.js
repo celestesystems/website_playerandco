@@ -1,4 +1,4 @@
-import { GameEvent, GameThemes } from "../../model/game_events/game_event.js"
+import { GameEvent, GameEventDatabase, GameThemes } from "../../model/game_events/game_event.js"
 
 const script_parent = document.getElementById("CarrousselEvent")
 const selection_element = document.getElementById("CarrousselSelectorContainer");
@@ -124,13 +124,17 @@ class Carroussel{
 
     constructor(game_events){
         this.game_events = game_events;
+
+        this.DisplayCarroussel();
     }
 
     GetSelectors(){
         return this.selectors;
     }
 
-    DisplayCarroussel(amount){
+    DisplayCarroussel(){
+        let i = 0;
+
         this.game_events.forEach(game_event => {
             let content = new CarousselContent(i, game_event);
 
@@ -141,6 +145,8 @@ class Carroussel{
             selector.DisplayEventSelector();
         
             this.selectors.push(selector);
+
+            i++
         });
     }
 
@@ -155,6 +161,6 @@ class Carroussel{
     }
 }
 
-new Carroussel(6);
+new Carroussel(GameEventDatabase.GetEvents());
 
 export default {};

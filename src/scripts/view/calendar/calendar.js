@@ -1,4 +1,4 @@
-import { GameEvent } from "../../model/game_events/game_event.js";
+import { GameEvent, GameEventDatabase } from "../../model/game_events/game_event.js";
 
 const calendar_element = document.getElementById("CalendarContainer");
 
@@ -29,5 +29,7 @@ class CalendarEvent{
         let event_box = document.createElement("div");
     }
 }
+
+new Calendar(GameEventDatabase.GetEvents());
 
 export default {};
