@@ -17,6 +17,14 @@ class pop_up_event_manager{
 
         this.pop_up_container = GameEventBox.DisplayEventContent(game_event);
 
+        pop_up_div.setAttribute("style", "display: block;");
+
+        pop_up_div.addEventListener("click", (evt) => {
+            if(evt.target == pop_up_div){
+                pop_up_div.setAttribute("style", "display: none;");
+            }
+        });
+
         pop_up_div.appendChild(this.pop_up_container);
     }
 }

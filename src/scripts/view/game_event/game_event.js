@@ -41,11 +41,27 @@ class GameEventBox{
         box_info_content.className = "EventInfoContent"
         box_info.appendChild(box_info_content);
 
-        let box_info_paragraph = document.createElement("p");
-        box_info_content.appendChild(box_info_paragraph);
+        let box_desc_p = document.createElement("p");
+        box_info_content.appendChild(box_desc_p);
+        box_desc_p.appendChild(document.createTextNode(game_event.GetDescription()));
 
-        let box_info_content_text = document.createTextNode(game_event.GetDescription());
-        box_info_paragraph.appendChild(box_info_content_text);
+        box_info_content.appendChild(document.createElement("br"));
+
+        let box_theme_p = document.createElement("p");
+        box_info_content.appendChild(box_theme_p);
+        box_theme_p.appendChild(document.createTextNode(game_event.GetTheme()));
+
+        box_info_content.appendChild(document.createElement("br"));
+
+        let box_date_begin_p = document.createElement("p");
+        box_info_content.appendChild(box_date_begin_p);
+        let event_date_begin = game_event.GetDateBegin();
+        box_date_begin_p.appendChild(document.createTextNode("End of Event: " +event_date_begin.toLocaleString()));
+
+        let box_date_end_p = document.createElement("p");
+        box_info_content.appendChild(box_date_end_p);
+        let event_date_end = game_event.GetDateEnd();
+        box_date_end_p.appendChild(document.createTextNode("End of Event: " +event_date_end.toLocaleString()));
 
         let box_info_join_div = document.createElement("div");
         box_info_join_div.className = "Flex FlexDirectionCol FlexAlignCenter";
@@ -53,6 +69,7 @@ class GameEventBox{
 
         let box_info_join = document.createElement("a")
         box_info_join.className = "ButtonJoinEvent";
+        box_info_join.setAttribute("href", "");
         box_info_join_div.appendChild(box_info_join);
 
         let box_info_join_text = document.createTextNode("Join!");

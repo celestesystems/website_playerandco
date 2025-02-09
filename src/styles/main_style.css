@@ -15,7 +15,7 @@ header{
     min-height: 256px;
     padding: 12px;
 
-    background-color: cyan;
+    background-color: rgb(161, 252, 252);
 }
 
 .ButtonAccount{
@@ -90,6 +90,12 @@ Caroussel Styling
 .EventSelected{
     width: 64px;
 }
+
+/*
+
+Event Box Styling
+
+*/
 
 .EventBox{
     width: 100%;
@@ -179,6 +185,7 @@ Calendar Styling
 
 .CalendarHour{
     border: solid;
+    border-width: 0 4px;
     border-color: #808080;
 }
 
@@ -191,7 +198,6 @@ Calendar Styling
 
     text-align: center;
     font-size: x-large;
-    color: white;
 
     border-style: solid;
     border-width: 2px;
@@ -205,7 +211,11 @@ Event pop-up styling
 */
 
 #PopUpDiv{
+    display: none;
+
     position: fixed;
+
+    background-color: #808080bb;
 
     top: 0;
 
@@ -213,8 +223,8 @@ Event pop-up styling
     width: 100vw;
 }
 
-.PopUpContainer{
-    margin: 10%;
+#PopUpDi>.EventBox{
+    margin: auto;
 }
 
 /*

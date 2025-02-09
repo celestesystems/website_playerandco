@@ -77,15 +77,16 @@ class CalendarEvent{
         let bg_color = Math.random() * 360;
 
         event_box.className = "CalendarEventBox";
-        event_box.setAttribute("style",`grid-row: ${pos_top * 2} / ${pos_bottom *  2}; grid-column: ${this.position + 1}; background-color: hsl(${bg_color}, 100%, 33%)`);
+        event_box.setAttribute("style",`grid-row: ${pos_top * 2} / ${pos_bottom *  2}; grid-column: ${this.position + 1}; background-color: hsl(${bg_color}, 100%, 80%)`);
 
         event_box.appendChild(document.createTextNode(this.game_event.GetTitle()));
 
-        this.container.appendChild(event_box);
-
         event_box.addEventListener("click", () => {
             pop_up_event_manager.Display(this.game_event);
+            
         });
+
+        this.container.appendChild(event_box);
     }
 }
 
