@@ -1,9 +1,9 @@
 class GameThemes {
-    static ALL= 0;
-    static WARGAME= 1;
-    static FANTASY= 2;
-    static SCIFI= 3;
-    static RACING= 4;
+    static ALL= "No theme specified";
+    static WARGAME= "Wagame";
+    static FANTASY= "Fatansy";
+    static SCIFI= "Sci-Fi";
+    static RACING= "Racing";
 }
 
 class GameEvent{

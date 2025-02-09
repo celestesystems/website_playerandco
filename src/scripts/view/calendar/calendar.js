@@ -1,4 +1,5 @@
 import { GameEvent, GameEventDatabase } from "../../model/game_events/game_event.js";
+import pop_up_event_manager from "../pop_up_event/pop_up_event.js";
 
 const calendar_element = document.getElementById("CalendarContainer");
 
@@ -81,6 +82,10 @@ class CalendarEvent{
         event_box.appendChild(document.createTextNode(this.game_event.GetTitle()));
 
         this.container.appendChild(event_box);
+
+        event_box.addEventListener("click", () => {
+            pop_up_event_manager.Display(this.game_event);
+        });
     }
 }
 
