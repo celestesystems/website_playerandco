@@ -1,7 +1,11 @@
-import { GameEvent, GameEventDatabase, GameThemes } from "../../model/game_events/game_event.js";
+import { GameEvent, GameEventDatabase, GameThemes, GameMechanics, GameComplexities } from "../../model/game_events/game_event.js";
 import pop_up_event_manager from "../pop_up_event/pop_up_event.js";
 
 const calendar_element = document.getElementById("CalendarContainer");
+
+const calendar_filter_theme = document.getElementById("CalendarFilterTheme");
+const calendar_filter_mechanic = document.getElementById("CalendarFilterMechanic");
+const calendar_filter_complexity = document.getElementById("CalendarFilterComplexity");
 
 class Calendar{
     Calendar_elements;
@@ -14,6 +18,61 @@ class Calendar{
 
     Display(){
         new CalendarDay(this.game_events);
+
+        new CalendarFilterTheme();
+        new CalendarFilterMechanic();
+        new CalendarFilterComplexity();
+    }
+}
+
+class CalendarFilterTheme{
+    constructor(){
+        this.Display();
+    }
+
+    Display(){
+        for (const key in GameThemes) {
+            let option = document.createElement("option");
+            
+            option.setAttribute("value", GameThemes[key]);
+            option.innerHTML = GameThemes[key];
+
+            calendar_filter_theme.appendChild(option);
+        }
+    }
+}
+
+class CalendarFilterMechanic{
+    constructor(){
+        this.Display();
+    }
+
+    Display(){
+        for (const key in GameMechanics) {
+            let option = document.createElement("option");
+            
+            option.setAttribute("value", GameMechanics[key]);
+            option.appendChild(document.createTextNode(GameMechanics[key]));
+
+            calendar_filter_mechanic.appendChild(option);
+        }
+    }
+}
+
+class CalendarFilterComplexity{
+    constructor(){
+        this.Display();
+    }
+
+    Display(){
+        for (const key in GameComplexities) {
+            let option = document.createElement("option");
+            
+            option.setAttribute("value", GameComplexities[key]);
+            option.appendChild(document.createTextNode(GameComplexities[key]));
+
+            calendar_filter_complexity.appendChild(option);
+        }
     }
 }
 
@@ -35,7 +94,7 @@ class CalendarDay{
             event_day_label_hour.className = "CalendarHour";
             event_day_label_hour.setAttribute("style", `grid-column: 1; grid-row: ${i * 2 + 1}`);
 
-            event_day_label_hour.appendChild(document.createTextNode(i + "H"));
+            event_day_label_hour.innerHTML = i + "H";
 
             event_day_container.appendChild(event_day_label_hour);
 

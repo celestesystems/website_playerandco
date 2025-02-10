@@ -4,6 +4,31 @@ class GameThemes {
     static FANTASY= "Fatansy";
     static SCIFI= "Sci-Fi";
     static RACING= "Racing";
+    static ADVENTURE = "Adventure";
+    static TRANSPORTS = "Transports";
+    static CITYBUILDING = "City Building";
+    static HORROR = "Horror";
+    static PIRATES = "Pirates";
+    static ZOMBIES = "Zombies";
+    static VIDEOGAME = "Video game theme";
+    static LANDSCAPE = "Landscape";
+    static MEDIEVAL = "Medieval";
+    static ANIMAL = "Animal";
+    static PREHISTORIC = "Prehistoric";
+}
+
+class GameMechanics{
+    static DRAFTING = "Drafting";
+    static TILELAYING = "Tile laying";
+    static DICEROLLING = "Dice rolling";
+    static ENGINEBUILDING = "EngineBuilding";
+}
+
+class GameComplexities{
+    static FAMILYFRIENDLY = "Family friendly games";
+    static LIGHT = "Light games"
+    static INTERMEDIATE = "Intermediate games";
+    static HEAVY = "Heavy games";
 }
 
 class GameEvent{
@@ -50,4 +75,4 @@ class GameEventDatabase{
     }
 }
 
-export {GameEventDatabase ,GameEvent, GameThemes};
+export {GameEventDatabase ,GameEvent, GameThemes, GameMechanics, GameComplexities};
