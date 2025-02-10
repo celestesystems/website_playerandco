@@ -18,6 +18,7 @@ class CarousselContent{
     DisplayEventElement(){
         let event_element = document.createElement("div");
         event_element.className = "EventElement";
+        event_element.style.backgroundImage = GameEventBox.GetUrlFromBanner(this.game_event.GetGameBanner());
         event_element.appendChild(GameEventBox.DisplayEventContent(this.game_event));
 
         script_parent.appendChild(event_element);

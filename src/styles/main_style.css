@@ -68,7 +68,6 @@ Caroussel Styling
     width: 100vw;
     min-height: 640px;
 
-    background-image: url("../../assets/PlaceHolders/PlaceHolder_Event_BG.jpg");
     background-repeat: repeat;
 
     border-style: dashed;
@@ -98,16 +97,18 @@ Event Box Styling
 */
 
 .EventBox{
-    width: 100%;
     max-width: 75vw;
-    min-height: 480px;
+    min-height: 640px;
 
-    margin: 0 auto;
+    border: solid;
+    border-width: 3px;
+
+    margin: 5% auto;
 }
 
 .EventTitle{
     position: relative;
-    top: 128px;
+    top: 288px;
     left: 10%;
 
     width: 80%;
@@ -119,10 +120,10 @@ Event Box Styling
 }
 
 .EventImage{
-    background-color: #3f3f3f;
-
     width: 100%;
-    min-height: 128px;
+    min-height: 320px;
+
+    background-position: center;
 }
 
 .EventInfo{

@@ -1,4 +1,4 @@
-import { GameEvent } from "../../model/game_events/game_event.js";
+import { GameBanners, GameEvent } from "../../model/game_events/game_event.js";
 
 class GameEventBox{
     static DisplayEventContent(game_event){
@@ -6,7 +6,6 @@ class GameEventBox{
         let box = document.createElement("div");
         box.className = "EventBox"
     
-        box.appendChild(this.DisplayTitle(game_event));
         box.appendChild(this.DisplayImage(game_event));
         box.appendChild(this.DisplayInfo(game_event));
     
@@ -20,8 +19,7 @@ class GameEventBox{
         let box_title_header = document.createElement("h2");
         box_title.appendChild(box_title_header);
 
-        let header_text = document.createTextNode(game_event.GetTitle());
-        box_title_header.appendChild(header_text);
+        box_title_header.innerHTML = game_event.GetTitle();
 
         return box_title;
     }
@@ -29,6 +27,10 @@ class GameEventBox{
     static DisplayImage(game_event){
         let box_image = document.createElement("div");
         box_image.className = "EventImage";
+
+        box_image.style.backgroundImage = this.GetUrlFromBanner(game_event.GetGameBanner());
+
+        box_image.appendChild(this.DisplayTitle(game_event));
 
         return box_image;
     }
@@ -43,25 +45,25 @@ class GameEventBox{
 
         let box_desc_p = document.createElement("p");
         box_info_content.appendChild(box_desc_p);
-        box_desc_p.appendChild(document.createTextNode(game_event.GetDescription()));
+        box_desc_p.innerHTML = game_event.GetDescription();
 
         box_info_content.appendChild(document.createElement("br"));
 
         let box_theme_p = document.createElement("p");
         box_info_content.appendChild(box_theme_p);
-        box_theme_p.appendChild(document.createTextNode(game_event.GetTheme()));
+        box_theme_p.innerHTML = game_event.GetTheme();
 
         box_info_content.appendChild(document.createElement("br"));
 
         let box_date_begin_p = document.createElement("p");
         box_info_content.appendChild(box_date_begin_p);
         let event_date_begin = game_event.GetDateBegin();
-        box_date_begin_p.appendChild(document.createTextNode("End of Event: " +event_date_begin.toLocaleString()));
+        box_date_begin_p.innerHTML = "Start of Event: " +event_date_begin.toLocaleString();
 
         let box_date_end_p = document.createElement("p");
         box_info_content.appendChild(box_date_end_p);
         let event_date_end = game_event.GetDateEnd();
-        box_date_end_p.appendChild(document.createTextNode("End of Event: " +event_date_end.toLocaleString()));
+        box_date_end_p.innerHTML = "End of Event: " +event_date_end.toLocaleString();
 
         let box_info_join_div = document.createElement("div");
         box_info_join_div.className = "Flex FlexDirectionCol FlexAlignCenter";
@@ -76,6 +78,22 @@ class GameEventBox{
         box_info_join.appendChild(box_info_join_text);
 
         return box_info;
+    }
+
+    static GetUrlFromBanner(banner){
+        let url;
+
+        switch(banner){
+            case(GameBanners.WARGAME1):{
+                url = "url(../../assets/Banners/Event/EventBanner_Wargame_01.png";
+                break;
+            }
+            default:{
+                url  = "url(../../assets/PlaceHolders/PlaceHolder_Event_BG.jpg)";
+            }
+        }
+
+        return url;
     }
 }
 

@@ -33,13 +33,20 @@ class GameComplexities{
     static HEAVY = "Heavy games";
 }
 
+class GameBanners{
+    static DEFAULT = "Default banner";
+    static WARGAME1 = "Wargame banner 1";
+}
+
 class GameEvent{
-    constructor(title, description, event_date_begin, event_date_end, game_theme){
+    constructor(title, description, event_date_begin, event_date_end, game_banner, game_theme){
         this.title = title;
         this.description = description;
 
         this.event_date_begin = event_date_begin;
         this.event_date_end = event_date_end;
+
+        this.game_banner = game_banner;
 
         this.game_theme = game_theme;
     }
@@ -60,6 +67,10 @@ class GameEvent{
         return this.event_date_end
     }
 
+    GetGameBanner(){
+        return this.game_banner;
+    }
+
     GetTheme(){
         return this.game_theme;
     }
@@ -77,4 +88,4 @@ class GameEventDatabase{
     }
 }
 
-export {GameEventDatabase ,GameEvent, GameThemes, GameMechanics, GameComplexities};
+export {GameEventDatabase ,GameEvent, GameThemes, GameMechanics, GameComplexities, GameBanners};
