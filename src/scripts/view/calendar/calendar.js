@@ -7,8 +7,16 @@ const calendar_filter_theme = document.getElementById("CalendarFilterTheme");
 const calendar_filter_mechanic = document.getElementById("CalendarFilterMechanic");
 const calendar_filter_complexity = document.getElementById("CalendarFilterComplexity");
 
+const calendar_filter_button = document.getElementById("CalendarFilterRefreshButton");
+
 class Calendar{
-    Calendar_elements;
+    calendar_elements;
+
+    calendar_div;
+
+    calendar_filter_element_theme;
+    calendar_filter_element_mechanic;
+    calendar_filter_element_complexity;
 
     constructor(game_events){
         this.game_events = game_events;
@@ -16,63 +24,70 @@ class Calendar{
         this.Display();
     }
 
-    Display(){
-        new CalendarDay(this.game_events);
+    Display(filters){
+        if(filters == null){
+            this.calendar_div = new CalendarDay(this.game_events);
+        }
+        else{
+            let game_events_filtered = [];
 
-        new CalendarFilterTheme();
-        new CalendarFilterMechanic();
-        new CalendarFilterComplexity();
+            for(let i = this.game_events.length - 1; i >= 0; i--){
+                if(filters.includes(this.game_events[i].GetTheme())){
+                    game_events_filtered.push(this.game_events[i]);
+                }
+            }
+
+            
+
+            this.calendar_div = new CalendarDay(game_events_filtered);
+        }
+
+        this.calendar_filter_element_theme = new CalendarFilter(GameThemes,calendar_filter_theme);
+        this.calendar_filter_element_mechanic =  new CalendarFilter(GameMechanics, calendar_filter_mechanic);
+        this.calendar_filter_element_complexity =  new CalendarFilter(GameComplexities, calendar_filter_complexity);
+
+        calendar_filter_button.addEventListener("click",() =>{
+            this.Refresh();
+        })
+    }
+
+    Refresh(){
+        calendar_element.removeChild(this.calendar_div);
+
+        let theme_filters = this.calendar_filter_element_theme.FetchFilterValue(calendar_filter_theme);
+
+        this.Display(theme_filters);
     }
 }
 
-class CalendarFilterTheme{
-    constructor(){
-        this.Display();
+class CalendarFilter{
+    constructor(filters, filter_element){
+        this.Display(filters, filter_element);
     }
 
-    Display(){
-        for (const key in GameThemes) {
+    Display(filters, filter_element){
+        for (const key in filters) {
             let option = document.createElement("option");
             
-            option.setAttribute("value", GameThemes[key]);
-            option.innerHTML = GameThemes[key];
+            option.setAttribute("value", filters[key]);
+            option.innerHTML = filters[key];
 
-            calendar_filter_theme.appendChild(option);
+            filter_element.appendChild(option);
         }
     }
-}
 
-class CalendarFilterMechanic{
-    constructor(){
-        this.Display();
-    }
+    FetchFilterValue(filter_element){
+        let values = [];
 
-    Display(){
-        for (const key in GameMechanics) {
-            let option = document.createElement("option");
-            
-            option.setAttribute("value", GameMechanics[key]);
-            option.appendChild(document.createTextNode(GameMechanics[key]));
+        let options = filter_element.children
 
-            calendar_filter_mechanic.appendChild(option);
+        for (let i = 0; i < options.length; i++) {
+            if(options[i].selected){
+                values.push(options[i].value);
+            }
         }
-    }
-}
 
-class CalendarFilterComplexity{
-    constructor(){
-        this.Display();
-    }
-
-    Display(){
-        for (const key in GameComplexities) {
-            let option = document.createElement("option");
-            
-            option.setAttribute("value", GameComplexities[key]);
-            option.appendChild(document.createTextNode(GameComplexities[key]));
-
-            calendar_filter_complexity.appendChild(option);
-        }
+        return values;
     }
 }
 
@@ -80,7 +95,7 @@ class CalendarDay{
     constructor(game_events){
         this.game_events = game_events;
 
-        this.Display();
+        return this.Display();
     }
 
     Display(){
@@ -114,6 +129,8 @@ class CalendarDay{
         });
 
         calendar_element.appendChild(event_day_container);
+
+        return event_day_container;
     }
 }
 

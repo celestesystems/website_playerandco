@@ -99,7 +99,7 @@ Event Box Styling
 
 .EventBox{
     width: 100%;
-    max-width: 50vw;
+    max-width: 75vw;
     min-height: 480px;
 
     margin: 0 auto;
@@ -172,6 +172,12 @@ Calendar Styling
 
     border-style: solid;
     border-width: 2px;
+}
+
+#CalendarFilterRefreshButton{
+    height: 32px;
+    width: 64px;
+    background-color: red;
 }
 
 .CalendarDayContainer{
