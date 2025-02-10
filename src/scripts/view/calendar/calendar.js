@@ -21,7 +21,18 @@ class Calendar{
     constructor(game_events){
         this.game_events = game_events;
 
+        this.DisplayFilters();
         this.Display();
+    }
+
+    DisplayFilters(){
+        this.calendar_filter_element_theme = new CalendarFilter(GameThemes,calendar_filter_theme);
+        this.calendar_filter_element_mechanic =  new CalendarFilter(GameMechanics, calendar_filter_mechanic);
+        this.calendar_filter_element_complexity =  new CalendarFilter(GameComplexities, calendar_filter_complexity);
+
+        calendar_filter_button.addEventListener("click",() =>{
+            this.Refresh();
+        })
     }
 
     Display(filters){
@@ -37,18 +48,8 @@ class Calendar{
                 }
             }
 
-            
-
             this.calendar_div = new CalendarDay(game_events_filtered);
         }
-
-        this.calendar_filter_element_theme = new CalendarFilter(GameThemes,calendar_filter_theme);
-        this.calendar_filter_element_mechanic =  new CalendarFilter(GameMechanics, calendar_filter_mechanic);
-        this.calendar_filter_element_complexity =  new CalendarFilter(GameComplexities, calendar_filter_complexity);
-
-        calendar_filter_button.addEventListener("click",() =>{
-            this.Refresh();
-        })
     }
 
     Refresh(){

@@ -15,6 +15,7 @@ class GameThemes {
     static MEDIEVAL = "Medieval";
     static ANIMAL = "Animal";
     static PREHISTORIC = "Prehistoric";
+    static ABSTRACT = "Abstract";
 }
 
 class GameMechanics{
@@ -22,6 +23,7 @@ class GameMechanics{
     static TILELAYING = "Tile laying";
     static DICEROLLING = "Dice rolling";
     static ENGINEBUILDING = "EngineBuilding";
+    static ROLLANDWRITE = "Roll and write"
 }
 
 class GameComplexities{
