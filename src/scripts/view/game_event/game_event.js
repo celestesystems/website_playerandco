@@ -88,6 +88,10 @@ class GameEventBox{
                 url = "url(../../assets/Banners/Event/EventBanner_Wargame_01.png";
                 break;
             }
+            case(GameBanners.RACING1):{
+                url = "url(../../assets/Banners/Event/EventBanner_Racing_01.png)";
+                break;
+            }
             default:{
                 url  = "url(../../assets/PlaceHolders/PlaceHolder_Event_BG.jpg)";
             }

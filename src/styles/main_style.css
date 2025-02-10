@@ -123,7 +123,7 @@ Event Box Styling
     width: 100%;
     min-height: 320px;
 
-    background-position: center;
+    background-position-y: 66%;
 }
 
 .EventInfo{

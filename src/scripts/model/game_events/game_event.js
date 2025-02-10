@@ -36,6 +36,7 @@ class GameComplexities{
 class GameBanners{
     static DEFAULT = "Default banner";
     static WARGAME1 = "Wargame banner 1";
+    static RACING1 = "Racing banner 1";
 }
 
 class GameEvent{
