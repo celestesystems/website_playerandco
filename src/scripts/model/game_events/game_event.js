@@ -1,5 +1,5 @@
 class GameThemes {
-    static ALL= "No theme specified";
+    static ALL= "All specified";
     static WARGAME= "Wagame";
     static FANTASY= "Fatansy";
     static SCIFI= "Sci-Fi";
@@ -15,18 +15,36 @@ class GameThemes {
     static MEDIEVAL = "Medieval";
     static ANIMAL = "Animal";
     static PREHISTORIC = "Prehistoric";
+    static HISTORY = "History"
     static ABSTRACT = "Abstract";
 }
 
 class GameMechanics{
+    static ALL = "All mechanics";
     static DRAFTING = "Drafting";
     static TILELAYING = "Tile laying";
     static DICEROLLING = "Dice rolling";
-    static ENGINEBUILDING = "EngineBuilding";
-    static ROLLANDWRITE = "Roll and write"
+    static ENGINEBUILDING = "Engine building";
+    static ROLLANDWRITE = "Roll and write";
+    static TRICKTAKING = "Trick taking";
+    static BLUFF = "Bluff";
+    static NEGOTIATION = "Negotiation";
+    static DECKBUILDING = "Deck building";
+    static CARDS = "Cards";
+    static HIDDENROLES = "Hidden roles";
+    static PUSHYOURLUCK = "Push your luck";
+    static REALTIME = "Real time";
+    static RESOURCEMANAGEMENT = "Resource management";
+    static WORDS = "Words";
+    static WORKERPLACEMENT = "Worker placement";
+    static AUCTION = "Auction";
+    static COOP = "Co-op";
+    static COMPETITION = "Competition";
+    static SEMICOOP = "Semi co-op";
 }
 
 class GameComplexities{
+    static ALL = "All complixites";
     static FAMILYFRIENDLY = "Family friendly games";
     static LIGHT = "Light games"
     static INTERMEDIATE = "Intermediate games";
@@ -40,7 +58,7 @@ class GameBanners{
 }
 
 class GameEvent{
-    constructor(title, description, event_date_begin, event_date_end, game_banner, game_theme){
+    constructor(title, description, event_date_begin, event_date_end, game_banner, game_theme, game_mechanics, game_complexity){
         this.title = title;
         this.description = description;
 
@@ -50,6 +68,10 @@ class GameEvent{
         this.game_banner = game_banner;
 
         this.game_theme = game_theme;
+
+        this.game_mechanics = game_mechanics;
+
+        this.game_complexity = game_complexity;
     }
 
     GetTitle(){
@@ -74,6 +96,14 @@ class GameEvent{
 
     GetTheme(){
         return this.game_theme;
+    }
+
+    GetMechanics(){
+        return this.game_mechanics;
+    }
+
+    GetComplexity(){
+        return this.game_complexity;
     }
 }
 

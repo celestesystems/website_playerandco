@@ -35,16 +35,31 @@ class Calendar{
         })
     }
 
-    Display(filters){
-        if(filters == null){
+    Display(){
+        if(this.calendar_filter_element_theme.GetValues().length == 0 && this.calendar_filter_element_mechanic.GetValues().length == 0 && this.calendar_filter_element_complexity.GetValues().length == 0){
             this.calendar_div = new CalendarDay(this.game_events);
         }
         else{
             let game_events_filtered = [];
 
-            for(let i = this.game_events.length - 1; i >= 0; i--){
-                if(filters.includes(this.game_events[i].GetTheme())){
-                    game_events_filtered.push(this.game_events[i]);
+            for(let i = 0; i < this.game_events.length; i++){               
+                if((this.calendar_filter_element_theme.GetValues().length == 0 || this.calendar_filter_element_theme.GetValues().includes(this.game_events[i].GetTheme())) && (this.calendar_filter_element_complexity.GetValues().length == 0 || this.calendar_filter_element_complexity.GetValues().includes(this.game_events[i].GetComplexity()))){
+                    let mechanic_match = false;
+
+                    if(this.calendar_filter_element_mechanic.GetValues().length == 0){
+                        mechanic_match = true;
+                    }
+                    else{
+                        this.game_events[i].GetMechanics().forEach(mechanic => {
+                            if(this.calendar_filter_element_mechanic.GetValues().includes(mechanic)){
+                                mechanic_match = true;
+                            }
+                        });
+                    }
+
+                    if(mechanic_match){
+                        game_events_filtered.push(this.game_events[i]);
+                    }
                 }
             }
 
@@ -53,16 +68,22 @@ class Calendar{
     }
 
     Refresh(){
-        calendar_element.removeChild(this.calendar_div);
+        calendar_element.removeChild(this.calendar_div)
 
-        let theme_filters = this.calendar_filter_element_theme.FetchFilterValue(calendar_filter_theme);
+        this.calendar_filter_element_theme.FetchFilterValue(calendar_filter_theme);
+        this.calendar_filter_element_mechanic.FetchFilterValue(calendar_filter_mechanic);
+        this.calendar_filter_element_complexity.FetchFilterValue(calendar_filter_complexity);
 
-        this.Display(theme_filters);
+        this.Display();
     }
 }
 
 class CalendarFilter{
+    filter_values = [];
+
     constructor(filters, filter_element){
+        this.filters = filters;
+
         this.Display(filters, filter_element);
     }
 
@@ -78,17 +99,29 @@ class CalendarFilter{
     }
 
     FetchFilterValue(filter_element){
-        let values = [];
+        this.filter_values = [];
 
         let options = filter_element.children
 
         for (let i = 0; i < options.length; i++) {
             if(options[i].selected){
-                values.push(options[i].value);
+                if(options[i].index == 0){
+                    this.filter_values = [];
+
+                    return;
+                }
+
+                this.filter_values.push(options[i].value);
             }
         }
+    }
 
-        return values;
+    GetFilters(){
+        return this.filters;
+    }
+
+    GetValues(){
+        return this.filter_values;
     }
 }
 
