@@ -1,4 +1,4 @@
-import { GameEvent, GameEventDatabase } from "../../model/game_events/game_event.js";
+import { GameEvent, GameEventDatabase, GameThemes } from "../../model/game_events/game_event.js";
 import pop_up_event_manager from "../pop_up_event/pop_up_event.js";
 
 const calendar_element = document.getElementById("CalendarContainer");
@@ -74,10 +74,29 @@ class CalendarEvent{
         let pos_top = this.game_event.GetDateBegin().getHours() + 1;
         let pos_bottom = this.game_event.GetDateEnd().getHours() + 1;
 
-        let bg_color = Math.random() * 360;
+        let bg_color = "background-color: white";
+        
+        switch(this.game_event.GetTheme()){
+            case(GameThemes.FANTASY): {
+                bg_color = `background-color: hsl(${300}, 100%, 80%)`;
+                break;
+            }
+            case(GameThemes.RACING): {
+                bg_color = `background-color: hsl(${0}, 100%, 80%)`;
+                break;
+            }
+            case(GameThemes.SCIFI): {
+                bg_color = `background-color: hsl(${180}, 100%, 80%)`;
+                break;
+            }
+            case(GameThemes.WARGAME): {
+                bg_color = `background-color: hsl(${110}, 100%, 80%)`;
+                break;
+            }
+        };
 
         event_box.className = "CalendarEventBox";
-        event_box.setAttribute("style",`grid-row: ${pos_top * 2} / ${pos_bottom *  2}; grid-column: ${this.position + 1}; background-color: hsl(${bg_color}, 100%, 80%)`);
+        event_box.setAttribute("style",`grid-row: ${pos_top * 2} / ${pos_bottom *  2}; grid-column: ${this.position + 1}; ${bg_color}`);
 
         event_box.appendChild(document.createTextNode(this.game_event.GetTitle()));
 
