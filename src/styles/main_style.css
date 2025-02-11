@@ -162,9 +162,38 @@ Event Box Styling
 
 /*
 
-Calendar Styling
+Event list Styling
 
 */
+
+#ListFilters{
+    padding: 0 5vw;
+}
+
+#ListContainer{
+    width: 90vw;
+
+    margin: 16px auto;
+
+    border-style: solid;
+    border-width: 2px;
+}
+
+#ListFilterRefreshButton{
+    height: 32px;
+    width: 64px;
+    background-color: red;
+}
+
+/*
+
+Calendar Styling
+
+UNUSED - deemed inappropriate as display
+
+#CalenderFilters{
+    padding: 0 5vw;
+}
 
 #CalendarContainer{
     width: 90vw;
@@ -209,6 +238,8 @@ Calendar Styling
     border-style: solid;
     border-width: 2px;
 }
+
+*/
 
 /*
 

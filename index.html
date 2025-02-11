@@ -34,25 +34,47 @@
             </div>
         </section>
         <section>
-            <script type="module" src="src/scripts/view/calendar/calendar.js"></script>
+            <script type="module" src="src/scripts/view/event_list/event_list.js"></script>
 
-            <select id="CalendarFilterTheme" title="Filter Game themes" multiple="true">
+            <div id="ListFilters" class="Flex FlexDirectionRow FlexAlignCenter FlexSpaceBetween">
+                <select id="ListFilterTheme" title="Filter Game themes" multiple="true">
+                    
+                </select>
+
+                <select id="ListFilterMechanic" title="Filter Game mechanics" multiple="true">
+                    
+                </select>
+
+                <select id="ListFilterComplexity" title="Filter Game complexity" multiple="true">
+                    
+                </select>
                 
-            </select>
-
-            <select id="CalendarFilterMechanic" title="Filter Game mechanics" multiple="true">
-                
-            </select>
-
-            <select id="CalendarFilterComplexity" title="Filter Game complexity" multiple="true">
-                
-            </select>
-
-            <div id = "CalendarFilterRefreshButton"><p>Refresh </p></div>
-
-            <div id="CalendarContainer">
-
+                <div id = "ListFilterRefreshButton"><p>Refresh </p></div>
             </div>
+
+            <table id="ListContainer">
+                <tr>
+                    <th>
+                        Event title
+                    </th>
+                    <th>
+                        Event Theme
+                    </th>
+                    <th>
+                        Event Mechanics
+                    </th>
+                    <th>
+                        Event Game Complexity
+                    </th>
+                    <th>
+                        Event DateBegin
+                    </th>
+                    <th>
+                        Event DateEnd
+                    </th>
+                </tr>
+
+            </table>
         </section>
         <section>
             <script id="EventPopUpScript" type="module" src="src/scripts/view/pop_up_event/pop_up_event.js"></script>

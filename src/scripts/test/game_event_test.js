@@ -14,6 +14,9 @@ class GameEventTester{
         let game_event_04 = new GameEvent("Memoire 44 Event", "Let us play Memoire 44!", new Date(2001, 1, 1, 13, 0, 0, 0),  new Date(2001, 1, 1, 16, 0, 0, 0), GameBanners.WARGAME1,GameThemes.WARGAME, [GameMechanics.DICEROLLING, GameMechanics.CARDS], GameComplexities.INTERMEDIATE);
 
         GameEventDatabase.PushEvent(game_event_04);
+        let game_event_05 = new GameEvent("Code Names", "Let us Code Names!", new Date(2001, 1, 1, 14, 0, 0, 0),  new Date(2001, 1, 1, 18, 0, 0, 0), GameBanners.DEFAULT ,GameThemes.ABSTRACT, [GameMechanics.WORDS], GameComplexities.LIGHT);
+
+        GameEventDatabase.PushEvent(game_event_05);
     }
 }
 

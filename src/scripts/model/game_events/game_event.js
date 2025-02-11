@@ -38,6 +38,7 @@ class GameMechanics{
     static WORDS = "Words";
     static WORKERPLACEMENT = "Worker placement";
     static AUCTION = "Auction";
+    static DOMINO = "Dominoes";
     static COOP = "Co-op";
     static COMPETITION = "Competition";
     static SEMICOOP = "Semi co-op";
@@ -45,7 +46,6 @@ class GameMechanics{
 
 class GameComplexities{
     static ALL = "All complixites";
-    static FAMILYFRIENDLY = "Family friendly games";
     static LIGHT = "Light games"
     static INTERMEDIATE = "Intermediate games";
     static HEAVY = "Heavy games";
@@ -58,7 +58,7 @@ class GameBanners{
 }
 
 class GameEvent{
-    constructor(title, description, event_date_begin, event_date_end, game_banner, game_theme, game_mechanics, game_complexity){
+    constructor(title, description, event_date_begin, event_date_end, game_banner, game_theme, game_mechanics, game_complexity, capacity){
         this.title = title;
         this.description = description;
 
@@ -68,10 +68,10 @@ class GameEvent{
         this.game_banner = game_banner;
 
         this.game_theme = game_theme;
-
         this.game_mechanics = game_mechanics;
-
         this.game_complexity = game_complexity;
+
+        this.capacity = capacity;
     }
 
     GetTitle(){
@@ -104,6 +104,10 @@ class GameEvent{
 
     GetComplexity(){
         return this.game_complexity;
+    }
+
+    GetCapacity(){
+        return this.capacity;
     }
 }
 
