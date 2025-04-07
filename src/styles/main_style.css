@@ -62,6 +62,29 @@ Caroussel Styling
     background-color: #aaaaaabb;
 }
 
+#CarrousselButtonLeft{
+    position: relative;
+
+    height: 10vh;
+    width: 5vw;
+
+    bottom: 40vh;
+
+    background-color: #808080bb;
+}
+
+#CarrousselButtonRight{
+    position: relative;
+
+    height: 10vh;
+    width: 5vw;
+
+    bottom: 50vh;
+    left: 95vw;
+
+    background-color: #808080bb;
+}
+
 .EventElement{
     flex-shrink: 0;
 

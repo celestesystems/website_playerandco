@@ -1,5 +1,5 @@
 import { GameEvent, GameEventDatabase, GameThemes, GameMechanics, GameComplexities } from "../../model/game_events/game_event.js";
-import pop_up_event_manager from "../pop_up_event/pop_up_event.js";
+import PopUpEventManager from "../pop_up_event/pop_up_event.js";
 
 const list_element = document.getElementById("ListContainer");
 
@@ -154,6 +154,18 @@ class ListRow{
         table_row.appendChild(this.DisplayDateBegin(game_event));
         table_row.appendChild(this.DisplayDateEnd(game_event));
 
+        table_row.addEventListener("click", () =>{
+            PopUpEventManager.Display(game_event);
+        });
+
+        table_row.addEventListener("mouseenter", () =>{
+            table_row.style.backgroundColor = "#ddddff";
+        });
+
+        table_row.addEventListener("mouseleave", () =>{
+            table_row.style.backgroundColor = "white";
+        });
+
         return table_row;
     }
 
@@ -175,7 +187,7 @@ class ListRow{
         let mechanics = document.createElement("td");
 
         game_event.GetMechanics().forEach(mechanic => {
-            mechanics.innerHTML += mechanic + ".";
+            mechanics.innerHTML += mechanic + ". ";
         });
 
         return mechanics;

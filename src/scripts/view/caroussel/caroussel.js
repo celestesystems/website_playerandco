@@ -1,7 +1,7 @@
 import { GameEvent, GameEventDatabase, GameThemes } from "../../model/game_events/game_event.js"
 import GameEventBox from "../game_event/game_event.js";
 
-const script_parent = document.getElementById("CarrousselEvent")
+const script_parent = document.getElementById("CarrousselEvent");
 const selection_element = document.getElementById("CarrousselSelectorContainer");
 
 class CarousselContent{
@@ -35,8 +35,6 @@ class CarrousselSelector{
     }
     
     Select(){
-        console.log("Event " + this.position + " has been selected");
-
         this.carroussel.ShiftEvents(this.position);
 
         this.event_selector.className = "EventSelector EventSelected";
@@ -63,11 +61,18 @@ class CarrousselSelector{
 
 class Carroussel{
     selectors = [];
+    position_current = 0;
+
+    timer_shift;
 
     constructor(game_events){
         this.game_events = game_events;
 
         this.DisplayCarroussel();
+
+        this.timer_shift = setTimeout(() => {
+            this.ShiftEventsOnce();
+        }, 4000);
     }
 
     GetSelectors(){
@@ -90,8 +95,24 @@ class Carroussel{
         });
     }
 
-    ShiftEvents(position){
-        script_parent.scroll({top: 0, left: document.body.style.getPropertyValue("100vw") * (position - 1), behavior: "smooth"});
+    ShiftEventsOnce(){
+        this.position_current = (this.position_current + 1) % this.game_events.length;
+
+        this.selectors[this.position_current].Select();
+    }
+
+    ShiftEvents(position){       
+        script_parent.scroll({top: 0, left: (document.body.getBoundingClientRect().right + 16)* position, behavior: "smooth"});
+
+        this.position_current = position;
+
+        clearTimeout(this.timer_shift);
+
+        this.UnselectSelectors();
+
+        this.timer_shift = setTimeout(() => {
+            this.ShiftEventsOnce();
+        }, 4000);
     }
 
     UnselectSelectors(){
